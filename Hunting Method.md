@@ -188,7 +188,7 @@
     
     5- Check the difference bettween Front-end & Burp request
     
-    6- 
+    6- Try creating more than one from the same block 
       
 		
 </details>
