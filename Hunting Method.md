@@ -20,7 +20,7 @@
     # rm subs.txt
 </details>
 <details>
-<summary> ## Subdomain takeover </summary>
+<summary>  Subdomain takeover </summary>
     
     # subzy run --targets subs.txt --hide_fails --vuln  | grep -v -E "Akamai|xyz|available|\-"
     if you found any vulnerability then search on how to takeover subdomain 
