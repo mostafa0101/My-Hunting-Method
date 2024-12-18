@@ -1,4 +1,5 @@
- ## **Subdomain enumeration**
+<details>
+ <summary> Subdomain enumeration </summary>
     
      https://securitytrails.com/
     
@@ -17,53 +18,26 @@
     after collecting all subdomains in subs.txt then let's remove duplicate 
     # cat subs.txt | anew >> allsubs.txt
     # rm subs.txt
-    
-## **Subdomain takeover**
+</details>
+<details>
+<summary> ## Subdomain takeover </summary>
     
     # subzy run --targets subs.txt --hide_fails --vuln  | grep -v -E "Akamai|xyz|available|\-"
     if you found any vulnerability then search on how to takeover subdomain 
+</details>
     
-    
-## **port scanning**
-    
-    # nmap -iL allsubs.txt -o nmap.txt
-    after finding open port as 22,21,25,111,139,445,etc...
-    # nmap <ip> -sV
-    then search for exploit in google
-    
-    to see the scripts of nmap 
-    # cd /usr/share/nmap/scripts
-    # ls 
-    to grep only scripts related to ssh or anything else
-    # ls | grep ssh
-    to use all scripts related to ssh
-    # nmap 192.168.1.1 --scripts=ssh*
-    to use specific script for exmaple ssh-brute.nse
-    # nmap 192.168.1.1 --script=ssh-brute.nse
-    
-    to use all vulnerable scripts to check for vulnerabilities 
-    # nmap 192.168.1.1 --script=vuln
-    # nmap 192.168.1.1 --script=exploit
-    
-    to bypass the firewall 
-    # nmap -sS -Pn -n 192.168.1.1 
-    
-    to use fragment mode to bypass the firewall 
-    # nmap -f 192.168.1.1
-    
-         
-## **httpx**
+  <details>       
+## <summary>httpx</summary>
     
     to see the working sites 
     # cat allsubs.txt | httpx -o httpx.txt
-    # cat httpx.txt | httpx -mc 200 -o httpx200.txt
-    
-## **Http request smuggling**
-    
+    # cat httpx.txt | httpx -mc 200 -o httpx200.txt    
     1- use smuggler to check request smuggling vulnerablitiy 
     # cat httpx.txt | smuggler.py | tee -a smuggler.txt
-    
-## **dirsearch and ffuf**
+</details>
+
+<details>
+## <summary>dirsearch and ffuf</summary>
     
     1- if you need to fuzz all the file of urls httpx.txt
     # dirsearch -l $(pwd)/httpx.txt -i 200  -e conf,config,bak,backup,swp,old,db,sql,asp,aspx,aspx~,asp~,py,py~,rb,rb~,php,php~,bak,bkp,cache,cgi,conf,csv,html,inc,jar,js,json,jsp,jsp~,lock,log,rar,old,sql,sql.gz,http://sql.zip,sql.tar.gz,sql~,swp,swp~,tar,tar.bz2,tar.gz,txt,wadl,zip,.log,.xml,.js.,.json
@@ -78,8 +52,10 @@
     
     to fuzz in two places with two files 
     # ffuf -u https://mars.com/FUZZ/AGAIN  -w list1.txt:FUZZ  -w list2.txt:AGAIN
-    
-## **Gather urls**
+</details>
+
+<details>
+## <summary>Gather urls</summary>
     
     1- gather urls with katana
     # katana -list httpx.txt -o katana.txt
@@ -96,10 +72,11 @@
     # cat allurls.txt | grep -E "\.js" >> js.txt
     7- get php files in php.txt
     # cat allurls.txt | grep -E "\.php$" >> php.txt
-    
+ </details>   
     	
     
-## **Javascript Analysis**
+<details>
+## <summary>Javascript Analysis</summary>
     
     1- use mantra to get api , passwords , keys ...
     # cat js.txt | mantra  | tee -a mantra.txt
@@ -108,9 +85,10 @@
     
     if found google api key then use tool google.sh  and see if api valid or not
     # google.sh AIz.............
-    
-    
-## **check sql injection in php**
+</details>
+
+<details>
+## <summary>check sql injection in php</summary>
     
     1- first let's gather parameters 
     # arjun -i php.txt | tee -a parameters.txt
@@ -119,9 +97,10 @@
     3- use sqlmap 
     # sqlmap -u "~~https://example.com/file.php?id=*~~" --dbs --banner --batch --random-agent
     
-    
-    
-## **signup vulnerabilities**
+ </details>   
+
+<details> 
+## <summary>signup vulnerabilities</summary>
     
     0- check in login page or register page http or https 
     (insecure data transfer ) 
@@ -153,32 +132,34 @@
     	- go back and change email to victim@gmail.com and observe it was verified succcessfully
     	(verification bypass )
     	 
-    	
+</details>
     
-## **login vulnerabilities**
+<details>
+## <summary>login vulnerabilities </summary>
 
     ```
- 1- login over http not https 	( insecure data transfer )
+	 1- login over http not https 	( insecure data transfer )
+	
+	 3- try default credentials (test:test) (admin:admin) (admin:password) (kali:kali) (admin:123)
+	  (admin:default) (root:root) (root:toor) (admin:kali) (kali:root) (admin:123456789)
+	
+	 4- try to inject sql injection in username as admin' or 1=1; -- -
+	
+	 5- try to make response manipulation  to bypass login page
+	
+	 6- use the request and send it to sqlmap to test if there is sql injection or not
+	
+	 7- try to inject xss payloads in username as <svg/onload=confirm()>
+	
+	 8- try to inject template injection inside username as {{9*9}} and if printed 81 then vulnerable to template injection
+	
+	 9- view source code of the page from CTRL+U to see if leaked credentials
 
- 3- try default credentials (test:test) (admin:admin) (admin:password) (kali:kali) (admin:123)
-  (admin:default) (root:root) (root:toor) (admin:kali) (kali:root) (admin:123456789)
+ </details>
 
- 4- try to inject sql injection in username as admin' or 1=1; -- -
 
- 5- try to make response manipulation  to bypass login page
-
- 6- use the request and send it to sqlmap to test if there is sql injection or not
-
- 7- try to inject xss payloads in username as <svg/onload=confirm()>
-
- 8- try to inject template injection inside username as {{9*9}} and if printed 81 then vulnerable to template injection
-
- 9- view source code of the page from CTRL+U to see if leaked credentials
- 
-
- 
-    
-## **reset password vulnerabilities**
+  <details>
+## <summary>reset password vulnerabilities</summary>
     
     ```
     check link of reset password in email if http not https
@@ -203,52 +184,57 @@
      
      
     ```
-    
-## **session vulnerabilities**
-  ```
-1- login to your account with firefox and chrome
-	- change the password in firefox 
-	- observe the account in chrome is still logged in and didn't logout
-	- Broken session Management 
-`
-2- login to your account with firefox and chrome 
-	- enable 2FA in firefox 
-	- reload the page in chrome and observe session is still valid 
+</details>
 
-3- login to your account and update anything 
-	-  intercept the request with burpsuite 
-	- send the request to repeater
-	- logout from your account 
-	- use the request in repater to update and if still valid  (vulnerability)
+<details>
+## <summary>session vulnerabilities</summary>
+  	```
+	
+	1- login to your account with firefox and chrome
+		- change the password in firefox 
+		- observe the account in chrome is still logged in and didn't logout
+		- Broken session Management 
+	
+	2- login to your account with firefox and chrome 
+		- enable 2FA in firefox 
+		- reload the page in chrome and observe session is still valid 
+	
+	3- login to your account and update anything 
+		-  intercept the request with burpsuite 
+		- send the request to repeater
+		- logout from your account 
+		- use the request in repater to update and if still valid  (vulnerability)
+	
+	4- ask for reset password 
+		- don't click on the link reached you 
+		- login with your username and password 
+		- change the password of the email 
+		- logout from your account and then use the link in step 1 
+		- if still valid then (Vulnerability)
+	
+	5-logout from your account 
+		- click on (Alt+Left-arrow) button or <--
+		- observe the session and profile data is still found 
+		- broken cache vulnerability
+	
+	6- when updating email address 
+		- check if OTP is sent to existing email not the new email 
+		- broken function lead to verification bypass
+	
+	7- create account with email A => victim 
+		- update the email to B => hacker then verify it -> vierfy your account 
+		- update email back to A => victim 
+		- if shown as verified then vulnerability 
+	
+	8- verifiaction bypass 
+		- account with victim@gmail.com => don't verify it 
+		- update account email to hacker@gmail.com
+		- once you clicked the link , if verified victim@gmail.com then vuln  
+	```
+</details>
 
-4- ask for reset password 
-	- don't click on the link reached you 
-	- login with your username and password 
-	- change the password of the email 
-	- logout from your account and then use the link in step 1 
-	- if still valid then (Vulnerability)
-
-5-logout from your account 
-	- click on (Alt+Left-arrow) button or <--
-	- observe the session and profile data is still found 
-	- broken cache vulnerability
-
-6- when updating email address 
-	- check if OTP is sent to existing email not the new email 
-	- broken function lead to verification bypass
-
-7- create account with email A => victim 
-	- update the email to B => hacker then verify it -> vierfy your account 
-	- update email back to A => victim 
-	- if shown as verified then vulnerability 
-
-8- verifiaction bypass 
-	- account with victim@gmail.com => don't verify it 
-	- update account email to hacker@gmail.com
-	- once you clicked the link , if verified victim@gmail.com then vuln  
-```
-
-## **hacking WordPress**
+<details>
+## <summary>hacking WordPress</summary>
     
     
     wpscan --url [https://target.com](https://target.com/) --disable-tls-checks --api-token zBsi404GGCMKGzTraiEsSsQsFXCsUVWmaDUsn3EPuKc -e at -e ap -e u --enumerate ap --plugins-detection aggressive --force
@@ -261,10 +247,13 @@
     /wp-login.php?action=register
     /wp-json/?rest_route=/wp/v2/users/
     /wp-json/?rest_route=/wp/v2/users/n
-    
-    
 
-## sqlinjection
+</details>
+    
+<details>
+## <summary>sqlinjection</summary>
 
     id = 1'XOR(if(now()=sysdate(),sleep(2*2),0))OR'
-    
+
+</details>
+
