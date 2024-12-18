@@ -155,6 +155,35 @@
 </details>
 
 <details>
+	<summary>RCE</summary>
+</details>
+
+
+<details>
+	<summary>Broken Access Control</summary>
+</details>
+
+
+<details>
+	<summary>Logic Bugs</summary>
+	
+    1- Try change the price or quantity of item
+    
+    2- Multiple booking for one room
+    
+    3- Place order without verify stock level
+    
+    4- Use coupons or bounus more than one time
+    
+    5- Check the difference bettween Front-end & Burp request
+    
+    6- 
+      
+		
+</details>
+
+
+<details>
 ## <summary>hacking WordPress</summary>
     
     
@@ -219,20 +248,6 @@
 		13- enabling 2fa does not end another sessions 
 		change password 
 		```
-</details>
-
-<details>
-	<summary>RCE</summary>
-</details>
-
-
-<details>
-	<summary>Broken Access Control</summary>
-</details>
-
-
-<details>
-	<summary>Logic Bugs</summary>
 </details>
 
 
