@@ -158,9 +158,30 @@
 	<summary>IDOR</summary>
 	
     1- Look for id everywhere
+    
     2- Play with hash/encoded values
+    
     3- Change The ID's in the request 
-    4- 
+    
+    4- Upload the profile photo for another user
+    
+    5- Try change/View data of another user
+    
+    6- Do something with your email then change it in Burp
+
+    7- Add parameter IDs to requests that don’t have them 
+
+    8- Try replacing parameter names
+
+    9- Try changing the requested file type 
+    	GET /user_data/2341 --> 401 Unauthorized
+	GET /user_data/2341.json --> 200 OK
+    
+    10- Try using an array {“id”:19} → {“id”:[19]}
+
+    11- Wildcard ID /api/users/*
+
+    12- 
  
   
 </details>
@@ -199,6 +220,13 @@
     10- 
       
 		
+</details>
+
+<details>
+	<summary>Race Condition</summary>
+
+    1- 
+ 
 </details>
 
 <details>
@@ -279,7 +307,6 @@
 
 <details>
 	<summary>2FA</summary>
-		```
 			
 		1- check 000000 - 123456
 		2- check null 
@@ -308,7 +335,7 @@
 		12- enable 2fa without email verification lead to pre-account takeover
 		13- enabling 2fa does not end another sessions 
 		change password 
-		```
+	
 </details>
 
 
