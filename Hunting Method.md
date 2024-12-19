@@ -109,7 +109,7 @@
 
 <details>
 ## <summary>session vulnerabilities</summary>
-  	```
+  	
 	
 	1- login to your account with firefox and chrome
 		- change the password in firefox 
@@ -151,7 +151,7 @@
 		- account with victim@gmail.com => don't verify it 
 		- update account email to hacker@gmail.com
 		- once you clicked the link , if verified victim@gmail.com then vuln  
-	```
+	
 </details>
 
 <details>
@@ -189,6 +189,14 @@
     5- Check the difference bettween Front-end & Burp request
     
     6- Try creating more than one from the same block 
+
+    7- Check for all posible IF statements and try to bypass it
+
+    8- A user gains access to restricted features they shouldn't have access to.
+
+    9- Try access files after deletion using the link of this file 
+
+    10- 
       
 		
 </details>
