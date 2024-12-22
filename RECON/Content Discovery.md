@@ -7,12 +7,19 @@
     dirsearch -u https://domain.com/ -e 'conf,config,bak,backup,smp,old,db,sql,asp,aspx,py,radl,zip,xml,swp,x~,asp~,py~,rb~,php~,bkp,jsp~,rar,gz,sql~,swp~,wdl,env,ini' --full-url -delay=10 --timeout=30 -p 127.0.0.1:8080 --random-agent -t 100 -w ~/SecLists/Discovery/Web-Content/combined_words.txt -o hiddenFiles.txt # turn on burpsuite to crawl  
 </details>
 
+---------------------------------------------------------------------------------------
+
 <details>
   <summary>ffuf</summary>
 
     ffuf -w /usr/share/wordlists/custom.txt -t 75 -ac -mc 200,405,401,415,302,301 -u http://assets.engage.tesla.com/FUZZ |anew ffufURLs.txt
     ffuf -u https://www.example.com/FUZZ -w wordlist/Seclists/Discovery/Web-content/raft-medium-files.txt -mc 200,302,301 -t 1000 |anew ffufURLs2.txt
+      
+      to fuzz in two places with two files 
+     ffuf -u https://mars.com/FUZZ/AGAIN  -w list1.txt:FUZZ  -w list2.txt:AGAIN
 </details>
+
+----------------------------------------------------------------------------------------
 
 paramspider -d domain.com
 
@@ -27,9 +34,9 @@ katana -passive -pss waybackarchive,commoncrawl,alienvault -f qurl -u target.com
 gospider -s https://target.com -d 1 -o gospiderCrawlURLs.txt
 
 
-# Getting parameters from live urls :-
+##### Getting parameters from live urls :-
 grep -E '\?.*=' allURLs.txt |anew allParamters.txt
-# cat allURLs.txt | grep "=" |anew allParamters.txt
+##### cat allURLs.txt | grep "=" |anew allParamters.txt
 
 
 
