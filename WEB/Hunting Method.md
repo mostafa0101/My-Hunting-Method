@@ -205,6 +205,17 @@
 
 <details>
 	<summary>RCE</summary>
+
+	1- Injection in json file 
+ 		{
+   		   "username":" `touch ayfile.txt` ",
+		   "password":"test"
+		}
+  	We establish a connection using ntcat then inject command in the json to get this connection
+     --------------------------------------------------------------------------------------------------
+     2- 
+
+     
 </details>
 
 -----------------------------------------------------------------------------
