@@ -37,5 +37,8 @@
       
   
     smb || nbns || dcerpc || nbss || dns
+    ftp/tcp/dns/ip
 
+    Check for word in a response
+      - resp.string==ayhaga
 </details>
