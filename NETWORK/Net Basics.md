@@ -23,9 +23,9 @@
     
     - ASN identifier for large companies EX: AS3033 => swisscom (hunt on any domain on that ASN)
 
-    - UDP fast but not secure // TCP secure but slower
+    - UDP fast but not secure // TCP secure but slower & encapsulate the data
 
-    - 
+    - ICMP used in PING 
 </details>
 
 
