@@ -4,6 +4,9 @@
      * -il <file name>
      * -sV > get service version
      * -p 22 > for port 22
+     * -p22,21,443
+     * -Pn > bypass firewall
+     * -f > fragment mode to bypass firewall
      * -
 
      
