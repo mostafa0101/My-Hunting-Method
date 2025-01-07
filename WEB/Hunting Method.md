@@ -559,6 +559,11 @@
    	3- Change the request method to get and remove the token
     	4- Add Ayhaga to the real CSRF token 
      	5- Dynamic chars in CSRF token manipulate
+	6- try delete referrer
+ 	7- Referrer: https://target.com/https://evil.com
+  	8- 
+
+       
 
  
 </details>
