@@ -285,6 +285,7 @@
 	6- no rate limit on comments 
 	7- no rate limit on reports of comments
 	8- no rate limit on port 22
+ 	9- no rate limit on create users account lead to massive accounts created
 	
 	------------
 	bypass rate limit by adding headers 
