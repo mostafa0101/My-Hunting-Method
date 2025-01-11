@@ -30,7 +30,12 @@
 
 
 <details>
-  <summary></summary>
+  <summary>Nikto</summary>
+
+    scan website to find files or path
+
+    $ nikto -h 10.10.10.1
+  
 </details>
 
 
