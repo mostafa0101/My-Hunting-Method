@@ -1,7 +1,7 @@
 # My Approach 
 ###### (my poor approach) 
 Please feel free to advice me to improve it 
-[linkedin](www.linkedin.com/in/mustafa-abdullah11)
+[linkedin](www.linkedin.com/in/mustafa-abdullah11 "contact me" )
   
 -----------------------------------------------------------------------------------
 
