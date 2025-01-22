@@ -195,7 +195,13 @@
 
     11- Wildcard ID /api/users/*
 
-    12- 
+    12- check for session cookies if has httponly flag
+
+    13- use the inspector of Burp Repeater to play with id's
+
+    14- use https://jwt.io
+
+    15- create two accounts and save both jwt data and try change between them
  
   
 </details>
