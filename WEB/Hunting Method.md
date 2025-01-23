@@ -202,6 +202,11 @@
     14- use https://jwt.io
 
     15- create two accounts and save both jwt data and try change between them
+
+    16- detect each cookie and see where it being used
+
+    17-
+
  
   
 </details>
