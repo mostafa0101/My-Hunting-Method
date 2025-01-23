@@ -205,7 +205,9 @@
 
     16- detect each cookie and see where it being used
 
-    17-
+    17- Gather POST & GET and test every CRUD
+
+    18- 
 
  
   
