@@ -237,6 +237,9 @@
 
 <details>
 	<summary>Broken Access Control</summary>
+
+	1- 
+ 
 </details>
 
 
