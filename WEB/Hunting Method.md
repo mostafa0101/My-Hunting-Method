@@ -63,7 +63,6 @@
 <details>
 ## <summary>login vulnerabilities </summary>
 
-    ```
 	 1- login over http not https 	( insecure data transfer )
 	
 	 3- try default credentials (test:test) (admin:admin) (admin:password) (kali:kali) (admin:123)
@@ -90,7 +89,6 @@
   <details>
 ## <summary>reset password vulnerabilities</summary>
     
-    ```
     check link of reset password in email if http not https
     check reset request code can be leaked in request or response
     no rate limit (Email bombing)
@@ -110,9 +108,6 @@
      brute force otp 
      --------------------------------------
      reset password does not end live sessions 
-     
-     
-    ```
 </details>
 
 -----------------------------------------------------------------------------
@@ -121,7 +116,6 @@
 <details>
 ## <summary>session vulnerabilities</summary>
   	
-	
 	1- login to your account with firefox and chrome
 		- change the password in firefox 
 		- observe the account in chrome is still logged in and didn't logout
@@ -218,7 +212,9 @@
 <details>
 	<summary>Broken Access Control</summary>
 
-	1- 
+	1- Test some Graphql operations with different user roles and see what this operation do
+ 	2- Check the role of every user and try upgrade your role by urself
+  	3- 
  
 </details>
 
