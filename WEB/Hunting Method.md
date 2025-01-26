@@ -214,7 +214,11 @@
 
 	1- Test some Graphql operations with different user roles and see what this operation do
  	2- Check the role of every user and try upgrade your role by urself
-  	3- 
+  	3- try any unauth behavior like :
+   		- member delete admin
+     		- member send invites using the invite request
+       		- member outside the comapny try any action 
+	 	- 
  
 </details>
 
