@@ -30,6 +30,9 @@ Ayhaga!@#123
  UPDATE -> 'path/profile/changepass'
  ...etc
 
+User -> User (for IDOR)
+ - change name , email...etc  
+
 -----------------------------------------------------------------------------------------
 ## Checkpoints
 - ...
