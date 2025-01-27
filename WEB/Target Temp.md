@@ -1,14 +1,14 @@
 ## Victim Account
-anavictim06@gmail.com
-mustafa1+admin@bugcrowdninja.com
-...
+- anavictim06@gmail.com
+- mustafa1+admin@bugcrowdninja.com
+- ...
 
 -----------------------------------------------------------------------------------------
 
 ## Attacker Account
-anaattacker@gmail.com
-mustafa1+user@bugcrowdninja.com
-...
+- anaattacker@gmail.com
+- mustafa1+user@bugcrowdninja.com
+- ...
 
 -----------------------------------------------------------------------------------------
 ## To do 
