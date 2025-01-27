@@ -1,17 +1,13 @@
 ## Victim Account
 anavictim06@gmail.com
-
-Ayhaga!@#123
-
+mustafa1+admin@bugcrowdninja.com
 ...
 
 -----------------------------------------------------------------------------------------
 
 ## Attacker Account
 anaattacker@gmail.com
-
-Ayhaga!@#123
-
+mustafa1+user@bugcrowdninja.com
 ...
 
 -----------------------------------------------------------------------------------------
@@ -25,9 +21,9 @@ Ayhaga!@#123
 
 -----------------------------------------------------------------------------------------
 ## Mechanisms
- READ -> 'path/profile'
+ READ -> GET 'path/profile'
 
- UPDATE -> 'path/profile/changepass'
+ UPDATE -> POST 'path/profile/changepass'
  ...etc
 
 User -> User (for IDOR)
