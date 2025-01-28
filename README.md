@@ -31,6 +31,8 @@ Please feel free to advice me to level up
 ### 5- Injections
     - First try manual injection then the automative injection (XSS, SQLi, XXE, Command injection)
 
+### 6- Some help
+    - Some times i use BugCrowd [VRT](https://bugcrowd.com/vulnerability-rating-taxonomy) to get ideas of Bugs to Hunt on
 -----------------------------------------------------------------------------------
 
 ##### Going from level 0 to 100 إن شاء الله  in a non-stop learning journey as Ambtious Penetration Tester & Bug hunter
