@@ -1,6 +1,13 @@
 <details>
   <summary>XSS</summary>
 
+    - Check for X-XSS-Protection header in the requset
+    - 
+    
+    
+    
+    
+    
     dalfox url "https://target.com/?q=search" -o dalfox_xss.txt
     dalfox file allParam.txt --waf-evasion --user-agent 'Mozilla/5.0 (x11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36' --proxy 'http://127.0.0.1:8080' --timeout 30 -b 'payload from xss.report' -o xssProbability.txt --deep-domxss 
     
