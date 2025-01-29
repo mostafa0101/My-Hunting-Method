@@ -36,5 +36,7 @@
 <details>
   <summary>SSTI</summary>
 
+    inject {{2*2}} in username or email
+    
 </details>
 
