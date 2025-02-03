@@ -7,6 +7,7 @@ Please feel free to advice me to level up
 
 ### 1- Recon
     - First testing the app as a normal user & the source code then map the app in notes 
+    - Everything i can't do as a normal user is a possible Bug as a Hunter
     
 ### 2- Asking myself?
    
