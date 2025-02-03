@@ -560,6 +560,14 @@
     	3- login as Victim in another browser
      	4- open the CSRF poc in victim browser if did the function then it's a bug
   	
+   	=================================================
+	SECOND SCENARIO: The Token is tied to non-session cookie
+ 		if the token tied to an attribute in the request 
+ 	1- intercept the request of user1 change email,username..etc
+  	2- Genrate POC 
+   	3- get the CSRF key and attribute value of user2
+    	4- 
+
     	=================================================
    	- Remove the token and leave the parameter empty
   	- Try use another user CSRF token
@@ -569,8 +577,6 @@
 	- try delete referrer
  	- Referrer: https://target.com/https://evil.com
   	
-
-       
 
  
 </details>
