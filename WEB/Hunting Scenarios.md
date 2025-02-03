@@ -552,34 +552,22 @@
 <details>
 	<summary>CSRF</summary>
 
-	poc: 
-		 <html>
-		  <body>
-		    <form action="https://redacted.com/profile/edit" method="POST">
-		      <input type="hidden" name="first_name" value="Attacker" />
-		    </form>
-		    <script>
-		      document.forms[0].submit();
-		    </script>
-		  </body>
-		</html>
-
+	Generate POC using LazyCSRF in BurpSuite
 	=================================================
-
+	FIRST SCENARIO: 
   	1- Login as Attacker and intercept any function like change email, pass, logout...etc
    	2- Genereate CSRF poc with that reqeust
     	3- login as Victim in another browser
      	4- open the CSRF poc in victim browser if did the function then it's a bug
   	
-   	
     	=================================================
-   	1- Remove the token and leave the parameter empty
-  	2- Try use another user CSRF token
-   	3- Change the request method to get and remove the token
-    	4- Add Ayhaga to the real CSRF token 
-     	5- Dynamic chars in CSRF token manipulate
-	6- try delete referrer
- 	7- Referrer: https://target.com/https://evil.com
+   	- Remove the token and leave the parameter empty
+  	- Try use another user CSRF token
+   	- Change the request method to get and remove the token
+    	- Add Ayhaga to the real CSRF token 
+     	- Dynamic chars in CSRF token manipulate
+	- try delete referrer
+ 	- Referrer: https://target.com/https://evil.com
   	
 
        
