@@ -3,10 +3,10 @@
     
     0- check in login page or register page http or https 
     (insecure data transfer ) 
-    
+    	-------------------------------------------------------------
     1- if there is no verification code or confirmation then 
     signup with admin@~~site.com~~ and report pre-account takeover vulnerability 
-    
+	-------------------------------------------------------------
     2- a- create account with hacker@gmail.com for example 
     	 b- confirmation will reach you 
     	 c- don't click on it 
@@ -14,23 +14,29 @@
     	 e- go back the link in step b and click on it 
     	 f- if the victim@gmail.com was verified successfully then 
     	 (misconfiguration lead to verification bypass  vulnerability) 
-    
+    	-------------------------------------------------------------
     3- while registertion put xss payloads inside username , name ....
-    
+        -------------------------------------------------------------
     4- create account with victim@gmail.com 
     	- don't verify the account and don't click on verification link 
     	- login to the site if you can 
     	- go to settings and see if there is 2 factor authentication 
     	- enable 2 factor authentication without confirming account 
     	- report vulenrability (enable 2fa without confirmaiton lead to pre-account tkaeover)
-    
+        -------------------------------------------------------------
     5- create account with victim@gmail.com ,  don't click on the link
     	- login to victim@gmail.com 
     	- change the email address to hacker@gmail.com 
     	- click on confimation link send to your email hacker@gmail.com 
     	- go back and change email to victim@gmail.com and observe it was verified succcessfully
     	(verification bypass )
-    	 
+       -------------------------------------------------------------
+    6- Create account1 but don't verify
+    	- Then create acount2 wiht the same email but different method like google login
+     	-  See if can access any data
+    -------------------------------------------------------------
+    7-  
+      
 </details>
 
 -----------------------------------------------------------------------------
@@ -85,7 +91,15 @@
 	2- Visit the forgot password page 
 	3- Enter the victim's email address and click Reset and Email Password
 	4- Intercept the HTTP request in Burp Suite & change the Host Header to your malicious site / server.
-	     
+    --------------------------------------
+	- check if the password reset endpoint is vulnerable to IDOR
+	-  check if the password reset endpoint is vulnerable to Host Header injection
+ 	- test for HTTP parameter Pollution (HPP)
+    --------------------------------------
+	- Test for SQLI in the reset pass send function
+    
+    --------------------------------------
+		     
 </details>
 
 -----------------------------------------------------------------------------
@@ -191,3 +205,17 @@
  
 </details>
 
+
+## Random 
+```
+- CORS Misconfiguration to Account Takeover
+
+- HTTP Request Smuggling to ATO
+	https://hackerone.com/reports/737140
+	https://hackerone.com/reports/740037
+
+-Top ATO report in hackerone
+	https://github.com/reddelexc/hackerone-reports/blob/master/tops_by_bug_type/TOPACCOUNTTAKEOVER.md
+
+- 
+```
