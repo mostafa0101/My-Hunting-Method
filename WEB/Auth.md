@@ -137,3 +137,57 @@
 	
 </details>
 
+-----------------------------------------------------------------------------
+
+<details>
+	<summary>2FA</summary>
+
+	- Request a 2FA code from Attacker Account.
+	- Use this valid 2FA code in the victim 2FA  Request and see if it bypass the 2FA Protection.
+	 ----------------------------------------------------
+	- After sumbit the verfiy code 
+ 	- Change the attacker cookie to victim-user cookie
+	----------------------------------------------------
+ 	- Try Response & Status code manipulation 
+  	- if "Success":"false" Change it to true
+   	- if the response 4xx change it to 200 OK
+	----------------------------------------------------
+ 	- 1. Request a 2FA code and use it
+	- 2. Now, Re-use the 2FA code and if it is used successfully that's an issue.
+	- Also, try requesting multiple 2FA codes and see if previously requested Codes expire or not when a new code is requested
+	- Also, try to re-use the previously used code after long time duration say 1 day or more.
+	----------------------------------------------------
+ 	- CSRF on 2FA disable feature
+  	----------------------------------------------------
+   	1. Directly Navigate to the page which comes after 2FA or any other authenticated page of the application.
+	2. If there is no success, change the refer header to the 2FA page URL. This may fool  
+	application to pretend as if the request came after satisfying 2FA Condition
+	----------------------------------------------------
+	- The 2FA code maybe leaked in the response or request
+ 	----------------------------------------------------
+  	- while triggering the 2FA Code Request, 
+		Analyze all the JS Files that are referred in the Response 
+		to see if any JS file contain information that can help bypass 2FA code.
+	----------------------------------------------------
+ 	- 1. Directly Navigate to the page which comes after 2FA or any other authenticated page of the application.
+	2. See if this bypasses the 2FA restrictions.
+	3. try to change the **Referrer header** as if you came from the 2FA page.
+	----------------------------------------------------
+	TOKEN
+ 		- try reuse used token
+   		- use token to bypass another account
+     		- Check for Leaked token
+       	----------------------------------------------------
+	- Lack of rate limit re-sending the code via SMS
+	----------------------------------------------------
+ 	- Attacker sign up with victim email (Email verification will be sent to victim email).
+	- Attacker able to login without verifying email.
+	- Attacker add 2FA.
+	----------------------------------------------------
+ 	- 
+
+
+  
+ 
+</details>
+
