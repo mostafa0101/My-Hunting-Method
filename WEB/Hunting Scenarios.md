@@ -381,6 +381,8 @@
 
     id = 1'XOR(if(now()=sysdate(),sleep(2*2),0))OR'
 
+	username:’ — ‘/” — “
+	password:’ — ‘/” — “
 </details>
 
 
