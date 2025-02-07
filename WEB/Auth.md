@@ -72,18 +72,20 @@
     1- ask reset password (from out) don’t press on it ⇒ 
     2- login to account ⇒ change the email and verify ⇒ click on reset link
     3- if password changed through reset password link (bug)
-     -----------------------------------
+    -----------------------------------
     1- ask reset password (from out) don’t press on it ⇒
     2- login to account ⇒ change the password ⇒
     3- click on reset link ⇒ if password changed through reset password link (bug)
     --------------------------------------
-    1- reset the password or ask for reset code  
-    2- don't click or reload the page but go to /profile or /account
-     directly and see if you can access
-     -------------------------------------
      brute force otp 
-     --------------------------------------
+    --------------------------------------
      reset password does not end live sessions 
+    --------------------------------------
+     	1- Open up Firefox and Burp Suite
+	2- Visit the forgot password page 
+	3- Enter the victim's email address and click Reset and Email Password
+	4- Intercept the HTTP request in Burp Suite & change the Host Header to your malicious site / server.
+	     
 </details>
 
 -----------------------------------------------------------------------------
