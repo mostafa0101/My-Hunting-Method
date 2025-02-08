@@ -166,8 +166,8 @@
   	- if "Success":"false" Change it to true
    	- if the response 4xx change it to 200 OK
 	----------------------------------------------------
- 	- 1. Request a 2FA code and use it
-	- 2. Now, Re-use the 2FA code and if it is used successfully that's an issue.
+ 	1. Request a 2FA code and use it
+	2. Now, Re-use the 2FA code and if it is used successfully that's an issue.
 	- Also, try requesting multiple 2FA codes and see if previously requested Codes expire or not when a new code is requested
 	- Also, try to re-use the previously used code after long time duration say 1 day or more.
 	----------------------------------------------------
@@ -183,10 +183,6 @@
 		Analyze all the JS Files that are referred in the Response 
 		to see if any JS file contain information that can help bypass 2FA code.
 	----------------------------------------------------
- 	- 1. Directly Navigate to the page which comes after 2FA or any other authenticated page of the application.
-	2. See if this bypasses the 2FA restrictions.
-	3. try to change the **Referrer header** as if you came from the 2FA page.
-	----------------------------------------------------
 	TOKEN
  		- try reuse used token
    		- use token to bypass another account
@@ -194,25 +190,74 @@
        	----------------------------------------------------
 	- Lack of rate limit re-sending the code via SMS
 	----------------------------------------------------
- 	- Attacker sign up with victim email (Email verification will be sent to victim email).
-	- Attacker able to login without verifying email.
-	- Attacker add 2FA.
+ 	- Try Play with session expire
 	----------------------------------------------------
- 	- 
+	- Create account without verify it and enable 2FA (Valid Bug)
+ 	 ----------------------------------------------------
+	1. As a user1, register, skip 2FA, copy the ID.
+	2. Register an account user2, register, perform a 2FA request but with ID from user1.
+	3. 2FA is enabled now on the account user1!
+	4. Perform a request /api/2fa/verify with valid code and ID of user1.
+	
+	<https://hackerone.com/reports/810880>
+	----------------------------------------------------
+	1. Try Login to your account
+	2. In 2FA Request resend the code
+	3. If the old and new code is the same then there is an issue
+	Impact: code that is not updated after a request new one makes it easier for a hacker to brute force or guess the code
+	
+	<https://github.com/bugcrowd/vulnerability-rating-taxonomy/issues/289>
+    	----------------------------------------------------
+	- Bypass 2FA with null or 000000 or Blanc
+ 	----------------------------------------------------
+  	1. Using the same session start the flow using your account and the victim's account.
+	2. When reaching the 2FA point on both accounts.
+	3. complete the 2FA with your account but do not access the next part.
+	4. Instead of that, try to access the next step with the victim's account flow.
+	5. If the back-end only set a Boolean inside your sessions saying that you have successfully passed the 2FA you will be able to bypass the 2FA of the victim.
+ 	----------------------------------------------------
+  	1. Use burp suite or another tool to intercept the requests
+	2. Turn on and configure your MFA
+	3. Login with your email and password
+	4. The page of MFA is going to appear
+	5. Enter any random number
+	6. when you press the button "sign in securely" intercept the request POST auth.target.com/v3/api/login and in the POST message change the fields: "mode":"sms" by "mode":"email" "secureLogin":true by "secureLogin":false
+	send the modification and check, you are in your account! It was not necessary to enter the phone code.
+	
+	<https://hackerone.com/reports/665722>
+	----------------------------------------------------
+	enter 2 wrong attempts in a short time
+	this may leads to bypass the 2FA process
+	
+	<https://hackerone.com/reports/1747978>
+	----------------------------------------------------
+	
+	- Remove the part of the cookie that is responsible for 2FA authentication
+	
+	https://hackerone.com/reports/2315420
+	----------------------------------------------------
+  	- 
 
 
-  
+
+
+
+
+
+
  
 </details>
 
 
-## Random 
+### Random 
 ```
 - CORS Misconfiguration to Account Takeover
 
 - HTTP Request Smuggling to ATO
 	https://hackerone.com/reports/737140
 	https://hackerone.com/reports/740037
+
+- in Profile section look for CSRF, CORS, Cache Deception, IDOR and many more
 
 -Top ATO report in hackerone
 	https://github.com/reddelexc/hackerone-reports/blob/master/tops_by_bug_type/TOPACCOUNTTAKEOVER.md
