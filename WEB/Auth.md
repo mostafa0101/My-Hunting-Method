@@ -248,8 +248,9 @@
  
 </details>
 
+-----------------------------------------------------------------------------
 
-### Random 
+#### Random 
 ```
 - CORS Misconfiguration to Account Takeover
 
