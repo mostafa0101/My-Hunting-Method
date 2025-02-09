@@ -44,9 +44,45 @@
 	{"email":"\\"a'-IF(LENGTH(database())=10,SLEEP(7),0)or'1'='1\\"@a.com"} --> {"code":0,"status":200,"mes sage":"Berhasil"} --> Valid --> Delay 8,696 milis
 	{"email":"\\"a"-IF(LENGTH(database())=11,SLEEP(7),0)or'1'='1\\"@a.com"} ---> {"code":0,"status":200,"mes sage":"Berhasil"} ---> Valid --> No delay
 	-------------------------------------------------------------
+	- Try OAuth login with the same email account twice
+ 	- one from google and the other from the deafault signup function
+  	- Business logic error
+	-------------------------------------------------------------
+ 	1. Create an account with a non-existing phone number
+	2. Intercept the Request in BurpSuite
+	3. Send the request to the repeater and forward
+	4. Go to Repeater tab and change the non-existent phone number to your phone number
+	5. If you got an OTP to your phone, try using that OTP to register that non-existent number 
+	-------------------------------------------------------------
+	- Manipulate the JSON request
+ 		{
+	        "code":[
+	                "1000",
+	                "1001",
+	                "1002",
+	                ...
+	                "9999"
+	                ]
+		}
+	-------------------------------------------------------------
+ 	-Weak Password Policy	
+	     - check if program accept 
+		- weak passwords like 123456
+		- username same as email address
+		- password same as email address
+		- improper implemented password reset and change features
+	-------------------------------------------------------------
+ 	- 
 
-	- 
 
+
+
+
+
+
+
+  
+  
 
  
       
