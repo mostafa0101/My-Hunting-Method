@@ -1,5 +1,9 @@
 <details>
  <summary> Subdomain enumeration </summary>
+
+	Tool for automative recon
+	https://github.com/blacklanternsecurity/bbot
+
     
      https://securitytrails.com/
     
