@@ -14,6 +14,33 @@
     virustotal   zoomeye
 </details>      
 
+<details>
+ <summary> Subdomain enumeration </summary>
+
+	Tool for automative recon
+	https://github.com/blacklanternsecurity/bbot
+
+    
+     https://securitytrails.com/
+    
+    https://subdomainfinder.c99.nl/
+    
+    https://shrewdeye.app/ 
+    
+    
+    # subfinder -d ~~mars.com~~ -all --recursive  -o subs.txt
+  
+    
+   
+    # echo ~~mars.com~~ | assetfinder --subs-only >> subs.txt
+    
+    
+    after collecting all subdomains in subs.txt then let's remove duplicate 
+    # cat subs.txt | anew >> allsubs.txt
+    # rm subs.txt
+</details>
+
+-----------------------------------------------------------------------------
 
 
 
