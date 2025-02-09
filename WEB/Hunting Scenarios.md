@@ -37,7 +37,12 @@
 
     17- Gather POST & GET and test every CRUD
 
-    18- 
+    18- change HTTP method
+	GET /users/delete/victim_id  ->403
+	POST /users/delete/victim_id ->200
+
+    19- 
+
 
  
   
@@ -54,7 +59,17 @@
    		- member delete admin
      		- member send invites using the invite request
        		- member outside the comapny try any action 
-	 	- 
+	------------------------------------------------
+ 	- Wildcard -> GET /users/id -> GET /users/*
+	------------------------------------------------
+	- Content-Type: application/xml 
+	- Content-Type: application/json
+	------------------------------------------------
+ 	- 
+
+
+
+
  
 </details>
 
@@ -91,6 +106,19 @@
 
  
 </details>
+
+-----------------------------------------------------------------------------
+
+<details>
+	<summary>CORS</summary>
+
+	- Try manipulate the origin header -> Origin:attacker.com or Origin:null or Origin:attacker.target.com or Origin:target.attacker.com
+ 		- If origin is reflected in response means the target is vuln to CORS
+
+	- 
+  
+</details>
+
 
 -----------------------------------------------------------------------------
 
