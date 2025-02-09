@@ -1,33 +1,4 @@
 <details>
- <summary> Subdomain enumeration </summary>
-
-	Tool for automative recon
-	https://github.com/blacklanternsecurity/bbot
-
-    
-     https://securitytrails.com/
-    
-    https://subdomainfinder.c99.nl/
-    
-    https://shrewdeye.app/ 
-    
-    
-    # subfinder -d ~~mars.com~~ -all --recursive  -o subs.txt
-  
-    
-   
-    # echo ~~mars.com~~ | assetfinder --subs-only >> subs.txt
-    
-    
-    after collecting all subdomains in subs.txt then let's remove duplicate 
-    # cat subs.txt | anew >> allsubs.txt
-    # rm subs.txt
-</details>
-
------------------------------------------------------------------------------
-
-
-<details>
 	<summary>IDOR</summary>
 	
     1- Look for id everywhere
@@ -399,9 +370,9 @@
 	
 	dalfox url "https://target.com/?q=search" -o dalfox_xss.txt
 	dalfox file allParam.txt --waf-evasion --user-agent 'Mozilla/5.0 (x11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 			Safari/537.36' --proxy 'http://127.0.0.1:8080' --timeout 30 -b 'payload from xss.report' -o xssProbability.txt --deep-domxss 
+
 	
-	
-	
+	echo "domain.com" | gau | kxss | grep ">"
 	
 	paramspider --domain domain.com
 	paramspider --domain https://www.domain.com --exclude woff,css,png,svg,jpg --output t.txt
@@ -457,5 +428,32 @@
  
 </details>
 
+<details>
+ <summary> Subdomain enumeration </summary>
+
+	Tool for automative recon
+	https://github.com/blacklanternsecurity/bbot
+
+    
+     https://securitytrails.com/
+    
+    https://subdomainfinder.c99.nl/
+    
+    https://shrewdeye.app/ 
+    
+    
+    # subfinder -d ~~mars.com~~ -all --recursive  -o subs.txt
+  
+    
+   
+    # echo ~~mars.com~~ | assetfinder --subs-only >> subs.txt
+    
+    
+    after collecting all subdomains in subs.txt then let's remove duplicate 
+    # cat subs.txt | anew >> allsubs.txt
+    # rm subs.txt
+</details>
+
+-----------------------------------------------------------------------------
 
 
