@@ -10,7 +10,8 @@ Please feel free to advice me to level up
     - Everything i can't do as a normal user is a possible Bug as a Hunter
     
 ### 2- Asking myself?
-   
+
+        - What Could hurt this app?
         - what language or framework is used?
         - Is there Authentication ?
         - What about sessions ?
