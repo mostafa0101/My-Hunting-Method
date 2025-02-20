@@ -260,6 +260,48 @@
 -----------------------------------------------------------------------------
 
 <details>
+	<summary>GraphQL API</summary>
+
+	graphw00f Tool 
+  	InQL Tool in BurpSuite
+ 	Clairvoyance Tool to brute-force GraphQL
+ 
+ 
+ 	/graphql
+	/graphiql
+	/graphql.php
+	/graphql/console
+	/api
+	/api/graphql
+	/graphql/api
+	/graphql/graphql
+	/v1/graphql
+	/v2/graphql
+	/graphql/v1
+	/graphql/v2
+	/gql
+	/graphql-playground
+	/playground
+	/altair
+	/query
+	/graphql/query
+	/graphql-explorer
+	/api/v1/graphql
+	/api/v2/graphql
+	/public/graphql
+	/private/graphql
+	/internal/graphql 
+
+
+
+
+ 
+
+</details>
+
+-----------------------------------------------------------------------------
+
+<details>
 	<summary>Rate Limit</summary>
 
  	rate limit 
