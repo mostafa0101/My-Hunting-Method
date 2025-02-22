@@ -200,7 +200,9 @@
 <details>
 	<summary>OAuth</summary>
 
-	- 
+	- Look in JS files or Github Repo for client_id & client_secret
+ 	- Mainpulate the redirect_uri & client_id 
+  		- The Auth Server may not check those two with the ones in the DB
   
 </details>
 
