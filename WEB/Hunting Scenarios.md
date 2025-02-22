@@ -155,6 +155,43 @@
 -----------------------------------------------------------------------------
 
 <details>
+	<summary>Open Redirect</summary>
+
+	- Look for: 
+ 		redirect=, redir=, next=, url=, u=,
+   		dest=, destination=, forward=, return=, 
+   		RelayState=, goto=, callback=, continue=
+
+	- Dorks: 
+ 		site:example.com inurl:redirect=
+		site:example.com inurl:url=
+		site:example.com inurl:next=
+		site:example.com inurl:%3Dhttp
+		site:example.com inurl:%3D%2F
+		inurl:"redirect=" OR inurl:"url=" OR inurl:"to=" OR inurl:"out="
+		site:target.com inurl:"redirect=" OR inurl:"url=" OR inurl:"next=" OR inurl:"to="
+		site:target.com filetype:js intext:"redirect" OR intext:"window.location"
+		inurl:"redirect.php?url=" OR inurl:"out.php?to=" OR inurl:"go.php?url="
+		site:target.com inurl:"search?q=" "redirect"
+		site:target.com ext:conf OR ext:ini OR ext:log "redirect"
+		site:target.com inurl:"shorturl=" OR inurl:"go=" OR inurl:"r="
+		site:target.com inurl:"api" "redirect_uri="
+		site:target.com intext:"has been moved" OR intext:"redirecting to"
+		site:github.com "redirect_uri=" "target.com"
+		https://target.com/redirect.php?url=https://evil.com
+
+
+	
+
+
+     
+  
+</details>
+
+
+-----------------------------------------------------------------------------
+
+<details>
 	<summary>HTTP Request Smuggling</summary>
 
 	https://deepstrike.io/blog/what-is-http-request-smuggling
