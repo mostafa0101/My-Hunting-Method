@@ -163,6 +163,7 @@
 	email=victim@mail.com,hacker@mail.com
 	email=victim@mail.com%20hacker@mail.com
 	email=victim@mail.com|hacker@mail.com
+ 	email="victim@mail.tld%0a%0dbcc:attacker@mail.tld"
 	#No domain:
 	email=victim
 	#No TLD (Top Level Domain):
@@ -187,8 +188,21 @@
   	- Paswword reset link leak via referrer
     	It allows the person who has control of site to change the user’s password (CSRF attack), because this person knows reset password token of the user.
 	--------------------------------------
+ 	- Login to your account and change pass then intercept the request
+  	- in Repeater enter another email and change their password 
+	--------------------------------------
+	- Use Burp Sequencer to find the randomness or predictability of tokens.
+	- Check if it:
+ 		| Generated based Timestamp
+		| Generated based on the UserID
+		| Generated based on email of User
+		| Generated based on Firstname and Lastname
+		| Generated based on Date of Birth
+		| Generated based on Cryptography
+	--------------------------------------
+	- Try use Expired/Used Tokens 
+	--------------------------------------	
  	- 
-
 
 
 
