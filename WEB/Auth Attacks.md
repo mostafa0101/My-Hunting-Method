@@ -72,7 +72,7 @@
 		- password same as email address
 		- improper implemented password reset and change features
 	-------------------------------------------------------------
- 	- 
+ 	
 
 
 
