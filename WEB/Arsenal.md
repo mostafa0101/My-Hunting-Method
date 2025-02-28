@@ -48,10 +48,26 @@
 
 
 <details>
-  <summary></summary>
+  <summary>GAU</summary>
 </details>
 
 
 <details>
-  <summary></summary>
+  <summary>Katana</summary>
 </details>
+
+
+<details>
+  <summary>Dlafox</summary>
+
+    - automated xss tool
+</details>
+
+<details>
+  <summary>Gxss</summary>
+
+    - Tool to gather reflected inputs
+</details>
+
+
+
