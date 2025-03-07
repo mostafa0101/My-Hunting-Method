@@ -2,6 +2,9 @@
   <summary>Subfinder</summary>
     
     subfinder -d target.com -all -silent -o subs.txt
+
+    go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
+    sudo mv subfinder /usr/local/bin/
     
 </details>
 
@@ -10,6 +13,10 @@
   <summary>paramspider</summary>
 
     paramspider -u target.com
+
+    git clone https://github.com/devanshbatham/paramspider
+    cd paramspider
+    pip install .
   
 </details>
 
