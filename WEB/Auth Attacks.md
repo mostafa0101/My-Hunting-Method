@@ -222,6 +222,11 @@
  	1- Create account victim@gmail.com
   	2- Login form google also using victim@gmail.com
    	3- notice it didn't check if user exist or not
+	----------------------------------------------------------------------------------------
+ 	1- Create account with facebook
+  	2- remove email and try put the user email
+
+    
     
   
 </details>
