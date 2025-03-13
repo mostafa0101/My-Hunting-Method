@@ -68,6 +68,11 @@
   <summary>Dlafox</summary>
 
     - automated xss tool
+    - go install github.com/hahwul/dalfox/v2@latest
+    - dalfox url http://testphp.vulnweb.com/listproducts.php\?cat\=123\&artist\=123\&asdf\=ff \ -b https://your-callback-url
+    - dalfox file urls_file --custom-payload ./mypayloads.txt
+
+
 </details>
 
 <details>
