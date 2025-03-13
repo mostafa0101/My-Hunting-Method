@@ -217,6 +217,12 @@
 	- Look in JS files or Github Repo for client_id & client_secret
  	- Mainpulate the redirect_uri & client_id 
   		- The Auth Server may not check those two with the ones in the DB
+
+	----------------------------------------------------------------------------------------
+ 	1- Create account victim@gmail.com
+  	2- Login form google also using victim@gmail.com
+   	3- notice it didn't check if user exist or not
+    
   
 </details>
 
