@@ -73,10 +73,12 @@
 		- improper implemented password reset and change features
 	-------------------------------------------------------------
  	
+	- Create acount with victim@gmail.com
+ 	- Don't verify it 
+  	- try create another account with victim@gmail.com but different username
+	-------------------------------------------------------------
 
-
-
-
+	
 
 
 
