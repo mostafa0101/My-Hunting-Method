@@ -7,34 +7,12 @@
     1- if there is no verification code or confirmation then 
     signup with admin@~~site.com~~ and report pre-account takeover vulnerability 
 	-------------------------------------------------------------
-    2- a- create account with hacker@gmail.com for example 
-    	 b- confirmation will reach you 
-    	 c- don't click on it 
-    	 d- login to your account and change the email to victim@gmail.com 
-    	 e- go back the link in step b and click on it 
-    	 f- if the victim@gmail.com was verified successfully then 
-    	 (misconfiguration lead to verification bypass  vulnerability) 
-    	-------------------------------------------------------------
+   
     3- while registertion put xss payloads inside username , name ....
         -------------------------------------------------------------
-    4- create account with victim@gmail.com 
-    	- don't verify the account and don't click on verification link 
-    	- login to the site if you can 
-    	- go to settings and see if there is 2 factor authentication 
-    	- enable 2 factor authentication without confirming account 
-    	- report vulenrability (enable 2fa without confirmaiton lead to pre-account tkaeover)
+    
         -------------------------------------------------------------
-    5- create account with victim@gmail.com ,  don't click on the link
-    	- login to victim@gmail.com 
-    	- change the email address to hacker@gmail.com 
-    	- click on confimation link send to your email hacker@gmail.com 
-    	- go back and change email to victim@gmail.com and observe it was verified succcessfully
-    	(verification bypass )
-       -------------------------------------------------------------
-    6- Create account1 but don't verify
-    	- Then create acount2 wiht the same email but different method like google login
-     	-  See if can access any data
-    -------------------------------------------------------------
+
     7- SQLI in Email Field
 
 	{"email":"asd'a@a.com"} --> Not Valid
@@ -64,29 +42,9 @@
 	                "9999"
 	                ]
 		}
-	-------------------------------------------------------------
- 	-Weak Password Policy	
-	     - check if program accept 
-		- weak passwords like 123456
-		- username same as email address
-		- password same as email address
-		- improper implemented password reset and change features
-	-------------------------------------------------------------
- 	
-	- Create acount with victim@gmail.com
- 	- Don't verify it 
-  	- try create another account with victim@gmail.com but different username
+
 	-------------------------------------------------------------
 
-	
-
-
-
-
-  
-  
-
- 
       
 </details>
 
@@ -125,23 +83,8 @@
     check link of reset password in email if http not https
     check reset request code can be leaked in request or response
     no rate limit (Email bombing)
-    ------------------------------------
-    1- ask reset password (from out) don’t press on it ⇒ 
-    2- login to account ⇒ change the email and verify ⇒ click on reset link
-    3- if password changed through reset password link (bug)
-    -----------------------------------
-    1- ask reset password (from out) don’t press on it ⇒
-    2- login to account ⇒ change the password ⇒
-    3- click on reset link ⇒ if password changed through reset password link (bug)
     --------------------------------------
      brute force otp 
-    --------------------------------------
-     reset password does not end live sessions 
-    --------------------------------------
-     	1- Open up Firefox and Burp Suite
-	2- Visit the forgot password page 
-	3- Enter the victim's email address and click Reset and Email Password
-	4- Intercept the HTTP request in Burp Suite & change the Host Header to your malicious site / server.
     --------------------------------------
 	- check if the password reset endpoint is vulnerable to IDOR
 	-  check if the password reset endpoint is vulnerable to Host Header injection
@@ -202,13 +145,7 @@
 		| Generated based on Date of Birth
 		| Generated based on Cryptography
 	--------------------------------------
-	- Try use Expired/Used Tokens 
-	--------------------------------------	
- 	- ask for reset pass 
 
-
-
-       
 </details>
 
 -----------------------------------------------------------------------------
@@ -237,77 +174,17 @@
 -----------------------------------------------------------------------------
 
 <details>
-## <summary>session vulnerabilities</summary>
-  	
-	1- login to your account with firefox and chrome
-		- change the password in firefox 
-		- observe the account in chrome is still logged in and didn't logout
-		- Broken session Management 
-	
-	2- login to your account with firefox and chrome 
-		- enable 2FA in firefox 
-		- reload the page in chrome and observe session is still valid 
-	
-	3- login to your account and update anything 
-		-  intercept the request with burpsuite 
-		- send the request to repeater
-		- logout from your account 
-		- use the request in repater to update and if still valid  (vulnerability)
-	
-	4- ask for reset password 
-		- don't click on the link reached you 
-		- login with your username and password 
-		- change the password of the email 
-		- logout from your account and then use the link in step 1 
-		- if still valid then (Vulnerability)
-	
-	5-logout from your account 
-		- click on (Alt+Left-arrow) button or <--
-		- observe the session and profile data is still found 
-		- broken cache vulnerability
-	
-	6- when updating email address 
-		- check if OTP is sent to existing email not the new email 
-		- broken function lead to verification bypass
-	
-	7- create account with email A => victim 
-		- update the email to B => hacker then verify it -> vierfy your account 
-		- update email back to A => victim 
-		- if shown as verified then vulnerability 
-	
-	8- verifiaction bypass 
-		- account with victim@gmail.com => don't verify it 
-		- update account email to hacker@gmail.com
-		- once you clicked the link , if verified victim@gmail.com then vuln  
-	
-</details>
-
------------------------------------------------------------------------------
-
-<details>
 	<summary>2FA</summary>
 
 	- Request a 2FA code from Attacker Account.
 	- Use this valid 2FA code in the victim 2FA  Request and see if it bypass the 2FA Protection.
 	 ----------------------------------------------------
-	- After sumbit the verfiy code 
- 	- Change the attacker cookie to victim-user cookie
-	----------------------------------------------------
  	- Try Response & Status code manipulation 
   	- if "Success":"false" Change it to true
    	- if the response 4xx change it to 200 OK
 	----------------------------------------------------
- 	1. Request a 2FA code and use it
-	2. Now, Re-use the 2FA code and if it is used successfully that's an issue.
-	- Also, try requesting multiple 2FA codes and see if previously requested Codes expire or not when a new code is requested
-	- Also, try to re-use the previously used code after long time duration say 1 day or more.
-	----------------------------------------------------
  	- CSRF on 2FA disable feature
   	----------------------------------------------------
-   	1. Directly Navigate to the page which comes after 2FA or any other authenticated page of the application.
-	2. If there is no success, change the refer header to the 2FA page URL. This may fool  
-	application to pretend as if the request came after satisfying 2FA Condition
-	----------------------------------------------------
 	- The 2FA code maybe leaked in the response or request
  	----------------------------------------------------
   	- while triggering the 2FA Code Request, 
@@ -319,12 +196,6 @@
    		- use token to bypass another account
      		- Check for Leaked token
        	----------------------------------------------------
-	- Lack of rate limit re-sending the code via SMS
-	----------------------------------------------------
- 	- Try Play with session expire
-	----------------------------------------------------
-	- Create account without verify it and enable 2FA (Valid Bug)
- 	 ----------------------------------------------------
 	1. As a user1, register, skip 2FA, copy the ID.
 	2. Register an account user2, register, perform a 2FA request but with ID from user1.
 	3. 2FA is enabled now on the account user1!
