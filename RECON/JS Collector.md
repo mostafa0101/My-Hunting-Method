@@ -1,16 +1,11 @@
-mkdir JSfiles
 
-subjs -i https://target.com | anew JSendpoints.txt
+gau https://example.com --threads 5 --o gau.txt 
+cat gau.txt | grep ".js" > trgtJS.txt
 
-python3 linkfinder.py -i https://target.com/app.js -o cli
+python3 ~/JSFinder/JSFinder.py -f trgtJS.txt
 
-katana -list allLiveSubdomains.txt -jc | grep "\.js" |httpx -mc 200  |anew JSfiles0.txt
+python3 ~/SecretFinder/SecretFinder.py -i trgtJS.txt
 
-cat allURLs.txt| grep ".js$" | httpx -mc 200 | anew JSfiles1.txt 
-
-cat waymoreURLs.txt | grep ".js$" | httpx -mc 200 | anew JSfiles2.txt 
-
-cat *.txt|anew JSfiles.txt
 
 
 
